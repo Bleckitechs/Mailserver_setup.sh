@@ -23,11 +23,9 @@ Mail users are managed via helper scripts: `addmail.sh` and `delmail.sh`.
 
 ## Installation
 
-1. Edit the variables at the top of the script:
+1. Edit the domain variable at the top of the script:
     ```bash
     DOMAIN="example.com"
-    MAIL_USER="info"
-    MAIL_PASS="your-password"
     ```
 
 2. Run the setup script as root:
@@ -48,7 +46,7 @@ Copy the TXT record printed at the end of the script under `mail._domainkey`.
 
 ### DMARC
 ```dns
-_dmarc IN TXT "v=DMARC1; p=none; rua=mailto:postmaster@example.com; ruf=mailto:postmaster@example.com; sp=none; aspf=r; adkim=r;"
+_dmarc IN TXT "v=DMARC1; p=reject; rua=mailto:postmaster@example.com; ruf=mailto:postmaster@example.com; sp=none; aspf=r; adkim=r;"
 ```
 
 ---
@@ -59,14 +57,14 @@ _dmarc IN TXT "v=DMARC1; p=none; rua=mailto:postmaster@example.com; ruf=mailto:p
 
 Use `addmail.sh` to add a new user:
 ```bash
-./addmail.sh user@example.com securepassword
+./addmail.sh user securepassword
 ```
 
 ### Delete Mail User
 
 Use `delmail.sh` to remove a user:
 ```bash
-./delmail.sh user@example.com
+./delmail.sh user
 ```
 
 Both scripts handle the virtual mailbox, Dovecot credentials, and directory cleanup.

@@ -1,4 +1,9 @@
 #!/bin/bash
+# Benutzung anzeigen, wenn nicht genügend Argumente übergeben wurden
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <username>"
+  exit 1
+fi
 
 # Variablen festlegen
 DOMAIN="domain.tld"

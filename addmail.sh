@@ -1,9 +1,15 @@
 #!/bin/bash
+# Benutzung anzeigen, wenn nicht genügend Argumente übergeben wurden
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <username> <password>"
+  exit 1
+fi
 
+# Argumente übernehmen
+MAIL_USER="$1"
+MAIL_PASS="$2"
 # Variablen festlegen
 DOMAIN="domain.de"
-MAIL_USER="security"   # Ersetze durch den neuen Benutzernamen
-MAIL_PASS='secure_passwd'   # Ersetze durch das Passwort für den neuen Benutzer
 VMAIL_UID=5000               # Muss mit der UID übereinstimmen, die du für vmail verwendet hast
 VMAIL_GID=5000               # Muss mit der GID übereinstimmen, die du für vmail verwendet hast
 VMAIL_DIR="/var/mail/vhosts"

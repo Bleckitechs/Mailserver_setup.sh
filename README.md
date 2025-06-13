@@ -162,8 +162,4 @@ The installer will:
 * Only required ports are open via UFW
 * DKIM private keys **never leave** the server
 
----
 
-## 📄 License
-
-Released under the [MIT License](LICENSE).
